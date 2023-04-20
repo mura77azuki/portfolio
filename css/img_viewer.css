@@ -1,0 +1,56 @@
+.img_viewer{
+	display: flex;
+	flex-direction: column;
+	background-color: #f1f1f1;
+	border: solid 1px #3e3e3e;
+}
+.viewer_body{
+	height: 100%;
+	display: flex;
+	align-items: center;
+}
+.btn_prev,
+.btn_next{
+	width: 40px;
+	height: 40px;
+	position: relative;
+	cursor: pointer;
+}
+.btn_prev span,
+.btn_next span{
+	display: block;
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	top: 10px;
+	left: 15px;
+	border-left: solid 4px #000000;
+	border-top: solid 4px #000000;
+}
+.btn_prev:hover span,
+.btn_next:hover span{
+	border-left: solid 4px #72ff91;
+	border-top: solid 4px #72ff91;
+}
+.btn_prev span{
+	transform: rotate(-45deg);
+}
+.btn_next span{
+	left: 5px;
+	transform: rotate(135deg);
+}
+.position{
+	display: flex;
+	justify-content: center;
+}
+.position span{
+	display: block;
+	width: 20px;
+	height: 20px;
+	clip-path: circle(25%);
+	background-color: #716f68;
+	transition: background-color 0.2s;
+}
+.position span.active{
+	background-color: #72ff91;
+}
