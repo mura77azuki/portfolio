@@ -2,54 +2,9 @@
 body{
 	background-color: #ececec
 }
-.pad_side{
-	padding-inline: 2.5%;
-}
-a{
-	color: #0000ff;
-}
-a:hover{
-	color: #7070ff;
-	cursor: pointer;
-}
 main{
 	min-height: calc(100vh - 100px);
 	padding-block: 20px;
-}
-button{
-	height: fit-content;
-	min-height: 30px;
-	font-size: 16px;
-	font-weight: bold;
-	color: #ffffff;
-	background-color: #3a4d6c;
-	border: none;
-	border-radius: 0;
-}
-button:hover{
-	color: #000000;
-	background-color: #80b1ff;
-}
-button.cancel{
-	color: #3e3e3e;
-	background-color: #ffffff;
-	border: solid 1px #3e3e3e;
-}
-button.cancel:hover{
-	color: #ffffff;
-	background-color: #3e3e3e;
-}
-.pager{
-	display: flex;
-	justify-content: center;
-	column-gap: 10px;
-	padding: 10px;
-}
-.pager > button{
-	width: 100px;
-}
-.pager > span{
-	width: 100px;
 }
 h2{
 	font-size: 22px;
@@ -58,25 +13,11 @@ h2{
 	background-color: #3e3e3e;
 	padding-left: 10px;
 }
-.icon_img{
-	width: 100px;
-	height: 100px;
-	object-fit: cover;
-}
-.status_message{
-	width: 50%;
-	font-weight: bold;
-	text-align: center;
-	color: #ffffff;
-	background-color: #288f00;
-	margin: 15px;
-	border-radius: 5px;
-	border-left: solid 4px #288f00;
-	border-right: solid 4px #288f00;
-}
+
+
 /*header area styles*/
 header {
-	height: 50px;
+	height: 60px;
 	display: flex;
 	justify-content: space-between;
 	background-color: #3e3e3e;
@@ -84,227 +25,12 @@ header {
 	top: 0;
 	z-index: 10;
 }
-/*
-header a{
-	min-width: 130px;
-	width: fit-content;
-	height: 50px;
-	display: block;
-	text-align: center;
-	line-height: 50px;
-	color: #ffffff;
-	background-color: #3e3e3e;
-	font-weight: bold;
-}
-header .menu_outer > .menu > div:first-child a{
-	min-width: 180px;
-}
-header a:hover{
-	color: #656565;
-}
-*/
-header > .logo a{
-	min-width: fit-content;
-}
-header > .logo img{
-	width: auto;
-	height: 100%;
-}
-header .menu_outer{
-	display: flex;
-}
-header .menu_outer > .menu{
-	display: flex;
-	position: absolute;
-	top: 0;
-	left: 50%;
-	transform: translateX(-50%);
-}
-header .menu_outer > .menu > div > ul{
-	display: none;
-}
-header .menu_outer > .menu > div:hover > ul{
-	display: block;
-}
-header .menu_outer > .menu > div > ul li{
-	background-color: #3e3e3e;
-}
-header .menu_outer > .user a{
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-header .menu_outer > .user .icon_img{
-	width: 45px;
-	height: 45px;
-}
-header .menu_btn{
-	width: 50px;
-	height: 50px;
-	position: relative;
-	display: none;
-}
-header .menu_btn:hover{
-	cursor: pointer;
-}
-header .menu_btn span{
-	display: block;
-	position: absolute;
-	width: 40px;
-	height: 4px;
-	border-radius: 2px;
-	background-color: #ffffff;
-	pointer-events: none;
-}
-header .menu_btn span:nth-of-type(1){
-	top: 10px;
-	left: 5px;
-}
-header .menu_btn span:nth-of-type(2){
-	top: 22px;
-	left: 5px;
-}
-header .menu_btn span:nth-of-type(3){
-	top: 34px;
-	left: 5px;
-}
-/*footer area styles*/
-footer {
-	height: 50px;
-	display: flex;
-	background-color: #3e3e3e;
-}
-footer > .logo img{
-	width: auto;
-	height: 100%;
-}
-
-/*modal basic styles*/
-.modal.outer{
-	width: 100vw;
-	height: 100vh;
-	background-color: #0000005f;
-	position: fixed;
-	top: 0;
-	left: 0;
-	z-index: 20;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	visibility: hidden;
-}
-.modal.window{
-	width: 90%;
-	max-width: 500px;
-	height: auto;
-	max-height: 90vh;
-	overflow-y: scroll;
-	background-color: #ffffff;
-	box-shadow: 10px 10px 10px #00000090;
-}
-.modal.window h2{
-	height: 30px;
-}
-.modal.window > .detail{
-	padding: 20px;
-	display: flex;
-	flex-direction: column;
-	row-gap: 10px;
-}
-.detail .thumbnail{
-	height: 150px;
-	display: flex;
-	justify-content: center;
-}
-.detail .thumbnail img{
-	width: 100%;
-	height: auto;
-	object-fit: contain;
-}
-.detail .work_title{
-	display: flex;
-	column-gap: 10px;
-}
-.detail .item h3{
-	font-size: 14px;
-	font-weight: bold;
-	
-}
-.detail .item p{
-	border-bottom: solid 2px #000000;
-}
-.detail .item span{
-	border-radius: 10px;
-	border: solid 1px #000000;
-	padding-inline: 5px;
-	background-color: #f0f0f0;
-}
-.detail .btn_area button{
-	width: 100%;
-	display: block;
-	margin-block: 10px;
-}
-
-/*COMMON FROM STYLES*/
-.desc{
-	width: 80%;
-	padding: 10px;
-}
-form .error,
-.error,
-.required{
-	font-weight: bold;
-	color: #FF0000;
-}
-form select{
-	height: 30px;
-	font-size: 16px;
-}
-form textarea{
-	font-size: 16px;
-}
-form input{
-	height: 30px;
-	font-size: 16px;
-}
-form label{
-	font-weight: bold;
-	width: fit-content;
-}
-
-@media screen and (max-width: 950px){
-	/*
-	header a{
-		min-width: 180px;
-	}
-	*/
-	header .menu_btn{
-		display: block;
-	}
-	header .menu_outer{
-		flex-direction: column;
-		position: absolute;
-		top: 50px;
-		right: 0;
-		display: none;
-	}
-	header .menu_outer > .menu{
-		flex-direction: column;
-		position: static;
-		transform: translateX(0);
-	}
-	header .menu_outer > .menu > div > ul{
-		display: block;
-	}
-}
-
-header{
-	height: 60px;
-}
 header .led img{
 	width: auto;
 	height: 100%;
+	max-height: 60px;
 	border: outset 5px #000000;
+	object-fit: contain;
 }
 header .menu ul{
 	display: flex;
@@ -342,7 +68,14 @@ header .menu a span{
 	left: 0;
 	transform: translateY(-50%);
 } 
+/*footer area styles*/
+footer {
+	height: 50px;
+	display: flex;
+	background-color: #3e3e3e;
+}
 
+/*main area styles*/
 main > .outer{
 	padding-inline: 20px;
 }
@@ -426,7 +159,7 @@ main > .outer{
 }
 .works .item img{
 	width: 300px;
-	height: 100%;
+	height: 300px;
 	max-height: 300px;
 	object-fit: contain;
 }
@@ -461,4 +194,32 @@ p{
 
 #imgView5 img{
 	margin-inline: 40px;
+}
+
+
+@media screen and (max-width: 950px){
+	header .led img{
+		width: 100%;
+	}
+	.skills > .box{
+		flex-direction: column;
+		row-gap: 10px;
+	}
+	.works .item{
+		flex-direction: column;
+		row-gap: 10px;
+	}
+}
+
+@media screen and (max-width: 700px){
+	.work_text div:first-child{
+		flex-direction: column;
+		row-gap: 10px;
+	}
+	.fit-content{
+		width: 100%;
+	}
+	.margin_right{
+		margin-right: 0;
+	}
 }
