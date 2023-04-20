@@ -3,10 +3,12 @@
 	flex-direction: column;
 	background-color: #f1f1f1;
 	border: solid 1px #3e3e3e;
+	padding-block: 20px;
 }
 .viewer_body{
 	height: 100%;
 	display: flex;
+	justify-content: center;
 	align-items: center;
 }
 .btn_prev,
