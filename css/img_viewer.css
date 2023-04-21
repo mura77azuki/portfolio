@@ -10,6 +10,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	position: relative;
 }
 .btn_prev,
 .btn_next{
@@ -55,4 +56,22 @@
 }
 .position span.active{
 	background-color: #72ff91;
+}
+
+
+@media screen and (max-width: 550px){
+	.viewer_body{
+		padding: 10px;
+	}
+	.btn_prev,
+	.btn_next{
+		position: absolute;
+		bottom: -30px;
+	}
+	.btn_prev{
+		left: 10px;
+	}
+	.btn_next{
+		right: 10px;
+	}
 }

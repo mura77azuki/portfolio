@@ -6,6 +6,11 @@ class ImgViewer{
 	btn_next = undefined;
 	position_bar = undefined;
 	index = 0;
+	/**
+	 * 画像を1枚ずつ表示できるビューを追加します。
+	 * @param {string} id 画像ビューを追加する対象のidを指定します。
+	 * @param {string[]} imglist 表示したい画像のソース(url等)を配列に格納して指定します。
+	 */
 	constructor(id, imglist){
 		this.list = imglist;
 		this.container = document.getElementById(id);
@@ -67,6 +72,21 @@ class ImgViewer{
 	}
 }
 
+function toggleMenu(){
+	document.getElementById('menu').classList.toggle('active');
+}
+function closeMenu(){
+	document.getElementById('menu').classList.remove('active');
+}
+function menuCtrl(e){
+	if(e.target.id == 'menu_btn'){
+		toggleMenu();
+	}
+	else{
+		closeMenu();
+	}
+}
+
 window.addEventListener('load',()=>{
 	img_view1 = new ImgViewer('imgView1',[
 		'./img/work01/01.jpg',
@@ -104,40 +124,27 @@ window.addEventListener('load',()=>{
 		'./img/work08/02.png',
 		'./img/work08/03.png',
 	]);
+
+	document.addEventListener('click', menuCtrl);
 });
 
 window.addEventListener('scroll',()=>{
-	header_menu = document.getElementsByClassName('header_menu');
-	markers = document.getElementsByClassName('marker');
+	let header_menu = document.getElementsByClassName('header_menu');
+	let markers = document.getElementsByClassName('marker');
+	let current_marker = -1;
+	for (const marker of markers) {
+		if(marker.getBoundingClientRect().y >= 5){
+			break;
+		}
+		current_marker++;
+	}
 
-	if(markers[3].getBoundingClientRect().y < 1){
-		header_menu[0].classList.remove('active');
-		header_menu[1].classList.remove('active');
-		header_menu[2].classList.remove('active');
-		header_menu[3].classList.add('active');
-	}
-	else if(markers[2].getBoundingClientRect().y < 1){
-		header_menu[0].classList.remove('active');
-		header_menu[1].classList.remove('active');
-		header_menu[2].classList.add('active');
-		header_menu[3].classList.remove('active');
-	}
-	else if(markers[1].getBoundingClientRect().y < 1){
-		header_menu[0].classList.remove('active');
-		header_menu[1].classList.add('active');
-		header_menu[2].classList.remove('active');
-		header_menu[3].classList.remove('active');
-	}
-	else if(markers[0].getBoundingClientRect().y < 1){
-		header_menu[0].classList.add('active');
-		header_menu[1].classList.remove('active');
-		header_menu[2].classList.remove('active');
-		header_menu[3].classList.remove('active');
-	}
-	else{
-		header_menu[0].classList.remove('active');
-		header_menu[1].classList.remove('active');
-		header_menu[2].classList.remove('active');
-		header_menu[3].classList.remove('active');
+	for(let i = 0; i < header_menu.length; i++){
+		if(i == current_marker){
+			header_menu[i].classList.add('active');
+		}
+		else{
+			header_menu[i].classList.remove('active');
+		}
 	}
 });
