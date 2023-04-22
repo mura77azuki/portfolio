@@ -12,16 +12,15 @@
 	align-items: center;
 	position: relative;
 }
-.viewer_body > img{
+.img_box{
 	position: relative;
 }
-.viewer_body > img.loading::after{
-	content: '';
-	width: 30%;
-	height: 30%;
+.loading.active{
+	width: 80px;
+	height: 80px;
 	position: absolute;
-	left: 35%;
-	top: 35%;
+	left: 50%;
+	top: 50%;
 	box-sizing: border-box;
 	border-radius: 50%;
 	border: 10px solid #72ff9139;
@@ -29,7 +28,7 @@
 
 	animation-name: loading;
 	animation-fill-mode: backwards;
-	animation-duration: 1s;
+	animation-duration: .8s;
 	animation-iteration-count: infinite;
 	animation-timing-function: linear;
 	animation-delay: 0s;
@@ -37,10 +36,10 @@
 }
 @keyframes loading {
 	0% {
-		transform: rotateZ(0deg);
+		transform:translateX(-50%) translateY(-50%) rotateZ(0deg);
 	}
 	100% {
-		transform: rotateZ(360deg);
+		transform:translateX(-50%) translateY(-50%) rotateZ(360deg);
 	}
 }
 .btn_prev,

@@ -2,7 +2,9 @@ class ImgViewer{
 	list = [];
 	img_num = 0;
 	container = undefined;
+	img_box = undefined;
 	img = undefined;
+	loading = undefined;
 	btn_prev = undefined;
 	btn_next = undefined;
 	position_bar = undefined;
@@ -25,14 +27,25 @@ class ImgViewer{
 		//ビューの中身を作るdiv要素を生成
 		this.content = document.createElement('div');
 		this.content.classList.add('viewer_body');
+		//画像を入れておくdiv要素を生成
+		this.img_box = document.createElement('div');
+		this.img_box.classList.add('img_box');
+		//ローディングアニメーション表示用のdiv要素を生成
+		this.loading = document.createElement('div');
+		this.loading.classList.add('loading');
 		//img要素を生成して画像をセット
 		this.img = document.createElement('img');
 		this.img.addEventListener('load', ()=>{this.loadImg();});
 		this.img.addEventListener('error', ()=>{this.errorImg();});
 		this.setImg();
+
+		this.img_box.appendChild(this.img);
+		this.img_box.appendChild(this.loading);
+
+
 		//画像が1枚だけの時はimg要素だけ追加して終了
 		if(this.img_num == 1){
-			this.content.appendChild(this.img);
+			this.content.appendChild(this.img_box);
 			this.container.appendChild(this.content);
 			return;
 		}
@@ -48,7 +61,7 @@ class ImgViewer{
 		this.btn_next.addEventListener('click', ()=>{this.next();});
 		//要素をdivに追加
 		this.content.appendChild(this.btn_prev);
-		this.content.appendChild(this.img);
+		this.content.appendChild(this.img_box);
 		this.content.appendChild(this.btn_next);
 		//何枚目か表示する丸の部分を作る
 		this.position_bar = document.createElement('div');
@@ -89,7 +102,7 @@ class ImgViewer{
 	 * [index]番目の画像をセットする
 	 */
 	setImg(){
-		this.img.classList.add('loading');
+		this.loading.classList.add('active');
 		this.img.src = this.list[this.index];
 	}
 	/**
@@ -99,10 +112,10 @@ class ImgViewer{
 		this.position_bar.childNodes[this.index].classList.toggle('active');
 	}
 	loadImg(){
-		this.img.classList.remove('loading');
+		this.loading.classList.remove('active');
 	}
 	errorImg(){
-		this.img.classList.remove('loading');
+		this.loading.classList.remove('active');
 	}
 }
 
