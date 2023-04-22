@@ -12,6 +12,37 @@
 	align-items: center;
 	position: relative;
 }
+.viewer_body > img{
+	position: relative;
+}
+.viewer_body > img.loading::after{
+	content: '';
+	width: 30%;
+	height: 30%;
+	position: absolute;
+	left: 35%;
+	top: 35%;
+	box-sizing: border-box;
+	border-radius: 50%;
+	border: 10px solid #72ff9139;
+	border-top: 10px solid #72ff91;
+
+	animation-name: loading;
+	animation-fill-mode: backwards;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	animation-delay: 0s;
+	animation-direction: normal;
+}
+@keyframes loading {
+	0% {
+		transform: rotateZ(0deg);
+	}
+	100% {
+		transform: rotateZ(360deg);
+	}
+}
 .btn_prev,
 .btn_next{
 	width: 40px;
