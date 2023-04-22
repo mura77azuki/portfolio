@@ -15,6 +15,9 @@
 .img_box{
 	position: relative;
 }
+.img_box.single{
+	padding-inline: 40px;
+}
 .loading.active{
 	width: 80px;
 	height: 80px;
@@ -92,6 +95,9 @@
 @media screen and (max-width: 550px){
 	.viewer_body{
 		padding: 10px;
+	}
+	.img_box.single{
+		padding-inline: 0;
 	}
 	.btn_prev,
 	.btn_next{
