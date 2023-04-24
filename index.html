@@ -7,16 +7,21 @@
 	<link rel="stylesheet" href="./css/reset.css">
 	<link rel="stylesheet" href="./css/common.css">
 	<link rel="stylesheet" href="./css/img_viewer.css">
+	<link rel="stylesheet" href="./css/ledPanel.css">
+	<script src="./js/wls.js"></script>
 	<script src="./js/app/ImgViewer.js"></script>
+	<script src="./js/app/LedPanel.js"></script>
 	<script src="./js/main.js"></script>
 </head>
 <body>
 <header>
-	<div class="led">
-		<img src="./img/portfolio.png" alt="portfolio">
+	<div id="led" class="led">
+		<noscript>
+			<img src="./img/portfolio.png" alt="portfolio">
+		</noscript>
 	</div>
 	<div id="menu" class="menu">
-		<div id="menu_btn" class="index"><span></span><span class="bar"></span><span></span></div>
+		<div class="index"><span></span><span class="bar"></span><span id="menu_btn" class="spread"></span><span></span></div>
 		<ul>
 			<li><a class="header_menu" href="#about"><span>自己紹介</span></a></li>
 			<li><a class="header_menu" href="#skills"><span>スキル</span></a></li>

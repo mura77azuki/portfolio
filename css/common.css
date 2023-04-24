@@ -25,12 +25,19 @@ header {
 	top: 0;
 	z-index: 10;
 }
+header .led{
+	border: outset 5px #000000;
+}
 header .led img{
 	width: auto;
 	height: 100%;
 	max-height: 60px;
 	border: outset 5px #000000;
 	object-fit: contain;
+}
+header .menu{
+	width: 100%;
+	max-width: 425px;
 }
 header .menu ul{
 	display: flex;
@@ -194,12 +201,13 @@ p{
 	width: 120px;
 }
 
-
-
-
 @media screen and (max-width: 950px){
 	header .led img{
 		width: 100%;
+	}
+	header .menu li{
+		width: 100%;
+		max-width: 100px;
 	}
 	.skills > .box{
 		flex-direction: column;
@@ -228,6 +236,7 @@ p{
 	}
 	header .menu{
 		position: fixed;
+		width: 110px;
 		right: -110px;
 		top: 60px;
 		transition: right 0.2s;
@@ -255,6 +264,7 @@ p{
 		width: 10px;
 		height: 10px;
 		right: 0;
+		pointer-events: none;
 	}
 	header .menu .index span:first-child{
 		top: -10px;
@@ -272,7 +282,13 @@ p{
 		left: 6px;
 		border-radius: 2px;
 		background-color: #f0f0f0;
-		pointer-events: none;
+	}
+	header .menu .index span.spread{
+		position: absolute;
+		top: -10px;
+		width: 40px;
+		height: 100px;
+		pointer-events: auto;
 	}
 }
 
