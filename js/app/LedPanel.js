@@ -23,12 +23,28 @@ App.LedPanel = class LedPanel{
 	constructor(targetId){
 		//データセット
 		this.data = this.jsonData;
-		//ledの初期化
-		let dotSize = 5.43479;//ドットサイズ指定(調整用)
+		//高さ = ドットサイズ*ドット数 + ドット間のサイズ*(ドット数-1) + padding(ドットサイズの半分)*2
+		//let height = (dotSize*this.display_y) + ((dotSize/5)*(this.display_y-1)) + dotSize;
 		/*
-		let height = (dotSize*7) + ((dotSize/5)*6) + dotSize;
-		console.log(height);
+		//基本は50pxになるようにする
+		let defaultHeight = 50;
+		//ドットサイズを計算
+		let calcDotSize = defaultHeight / ((this.display_y * 1.2) + 0.8);
 		*/
+		//予め計算した値
+		let defaultDotSize = 5.434782608695651;//ドットサイズ指定(調整用)
+		let calcDotSize = defaultDotSize;
+		//横幅を計算する
+		let calcWidth = calcDotSize * ((this.display_x * 1.2) + 0.8);
+		//let calcWidth = (calcDotSize*this.display_x) + ((calcDotSize/5)*(this.display_x-1)) + calcDotSize;
+		//windowの横幅と比較する
+		if(calcWidth > window.innerWidth){
+			//横がはみ出す場合はドットサイズをwidthに合わせて修正する
+			calcDotSize = (window.innerWidth - 10) / ((this.display_x * 1.2) + 0.8);
+		}
+
+		let dotSize = calcDotSize;
+		
 		this.led = new Wls.LED.MatrixLed(this.display_y, this.display_x, dotSize, dotSize / 5, dotSize / 2);
 		//ledをセッティングする要素を取得してキャンバス要素を追加する。
 		let target = document.getElementById(targetId);
@@ -89,6 +105,30 @@ App.LedPanel = class LedPanel{
 		if(this.current_y == this.target_y){
 			this.stopScroll();
 		}
+	}
+	resize(){
+		//予め計算した値
+		let defaultDotSize = 5.434782608695651;//ドットサイズ指定(調整用)
+		let calcDotSize = defaultDotSize;
+		//横幅を計算する
+		let calcWidth = calcDotSize * ((this.display_x * 1.2) + 0.8);
+		//let calcWidth = (calcDotSize*this.display_x) + ((calcDotSize/5)*(this.display_x-1)) + calcDotSize;
+		//windowの横幅と比較する
+		if(calcWidth > (window.innerWidth - 10)){
+			//横がはみ出す場合はドットサイズを修正する
+			calcDotSize = (window.innerWidth - 10) / ((this.display_x * 1.2) + 0.8);
+		}
+		else{
+			if(this.led.dotSize == defaultDotSize){
+				return;
+			}
+		}
+
+		this.led.dotSize = calcDotSize;
+		this.led.gap = calcDotSize / 5;
+		this.led.margin = calcDotSize / 2;
+		this.led.reCalc();
+		this.led.refresh();
 	}
 }
 

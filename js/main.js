@@ -91,3 +91,4 @@ function main(){
 
 window.addEventListener('load', main);
 window.addEventListener('scroll', scrollCtrl);
+window.addEventListener('resize', ()=>{ledPanel.resize()});
